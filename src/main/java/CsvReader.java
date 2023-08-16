@@ -14,15 +14,13 @@ import org.example.java.domain.Person;
  * Hello world!
  *
  */
-public class CsvReader 
-{
-    static final Logger logger = Logger.getLogger(CsvReader.class.getName());    
+public class CsvReader {
+    static final Logger logger = Logger.getLogger(CsvReader.class.getName());
 
     /**
      * @param args
      */
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
         Path diretorioAtual = Paths.get("src/main/resources/");
         String caminhoAbsoluto = diretorioAtual.toAbsolutePath().toString();
         String caminhoArquivoAbsoluto = caminhoAbsoluto + "/persons.txt";
@@ -40,7 +38,7 @@ public class CsvReader
             try {
                 String linha = reader.readLine();
 
-                while(linha != null) {
+                while (linha != null) {
                     String campos[] = linha.split(",");
                     people.add(new Person(campos[0], Integer.parseInt(campos[1]), campos[2]));
                     linha = reader.readLine();
