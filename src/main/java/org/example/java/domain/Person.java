@@ -2,13 +2,33 @@ package org.example.java.domain;
 
 public class Person {
 
+    private Long id;
     private String name;
-    private int age;
+    private String address;
     private String city;
 
-    public Person(String name, int age, String city) {
+    public Person() {}
+
+    public Person(String name, String address, String city) {
         this.name = name;
-        this.age = age;
+        this.address = address;
+        this.city = city;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -16,8 +36,8 @@ public class Person {
         return this.name;
     }
 
-    public int getAge() {
-        return this.age;
+    public String getAddress() {
+        return this.address;
     }
 
     public String getCity() {
@@ -28,7 +48,7 @@ public class Person {
     public String toString() {
         return "{" +
                 " name='" + getName() + "'" +
-                ", age='" + getAge() + "'" +
+                ", endereco='" + getAddress() + "'" +
                 ", city='" + getCity() + "'" +
                 "}";
     }
