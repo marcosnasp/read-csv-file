@@ -1,5 +1,7 @@
 package org.example.java.domain;
 
+import java.util.Objects;
+
 public class Person {
 
     private Long id;
@@ -10,6 +12,13 @@ public class Person {
     public Person() {}
 
     public Person(String name, String address, String city) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+    }
+
+    public Person(Long id, String name, String address, String city) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.city = city;
@@ -53,4 +62,16 @@ public class Person {
                 "}";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(address, person.address) && Objects.equals(city, person.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, city);
+    }
 }
